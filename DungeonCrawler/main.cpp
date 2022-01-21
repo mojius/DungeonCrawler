@@ -4,13 +4,16 @@
 #include "Player.h"
 #include <string>
 #include <stdlib.h>
+#include <random>
 
 int main()
 {
+
+
 	GameMap mapOne("C:\\Users\\Mojius\\Documents\\Downloads\\test.txt", false);
 	std::cout << "Welcome to Dungeon Crawler version 1e^-4.\n";
 	
-	Player p(mapOne, (0, 0), Player::Orientation::SOUTH);
+	Player p(mapOne, { 0,0 }, Player::Orientation::SOUTH);
 
 	char direction;
 
@@ -93,7 +96,7 @@ int main()
 
 //Battle code ends.
 
-		p.PrintGameMap();
+		p.printGameMap();
 
 	 	std::cout << "Pick a direction for the player to move to. (WASD)";
 		std::cin >> direction;
@@ -101,16 +104,16 @@ int main()
 		switch (direction)
 		{
 		case 'W':
-			p.Move(Player::Orientation::NORTH);
+			p.move(Player::Orientation::NORTH);
 			break;
 		case 'A':
-			p.Move(Player::Orientation::WEST);
+			p.move(Player::Orientation::WEST);
 			break;
 		case 'S':
-			p.Move(Player::Orientation::SOUTH);
+			p.move(Player::Orientation::SOUTH);
 			break;
 		case 'D':
-			p.Move(Player::Orientation::EAST);
+			p.move(Player::Orientation::EAST);
 			break;
 
 		}

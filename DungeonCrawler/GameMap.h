@@ -1,5 +1,5 @@
-#ifndef BDALY_GameMap_H
-#define BDALY_GameMap_H
+#ifndef BDALY_GAMEMAP_H
+#define BDALY_GAMEMAP_H
 
 #include "util.h"
 #include <string>
@@ -14,7 +14,7 @@ public:
 	enum TileState { AIR, SOLID, ENTRANCE, EXIT };
 	class GameMapTile
 	{
-
+	
 	public:
 		GameMapTile(GameMap::TileState p_state = GameMap::TileState::AIR);
 		GameMap::TileState GetTileState();
@@ -31,7 +31,7 @@ public:
 	Vec2D GetSize();
 
 private:
-	Vec2D size = (0,0);
+	Vec2D size { 0,0 };
 	GameMapTile*** mapArray = nullptr;
 
 };

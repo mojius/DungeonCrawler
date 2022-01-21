@@ -3,13 +3,16 @@
 
 #include "GameObject.h"
 #include "util.h"
+#include "BattleStats.h"
+#include "Player.h"
+#include <vector>
 
 class Enemy : public GameObject
 {
 private:
-	int hitDice;
-	int HP;
-
+	BattleStats stats;
+	friend class Player;
+	std::vector<IBattleCommand*> commands;
 };
 
 

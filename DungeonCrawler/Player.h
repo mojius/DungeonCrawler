@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "util.h"
 #include "BattleCommand.h"
+#include "GameMap.h"
 
 class Player : public GameObject
 {
@@ -16,7 +17,6 @@ public:
 		EAST,
 		WEST
 	};
-
 
 	Orientation getOrientation();
 	void setOrientation(Orientation m_oOrientation);

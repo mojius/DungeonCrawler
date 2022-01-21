@@ -143,9 +143,9 @@
     <ClInclude Include="BattleStats.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="LifeStats.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameMap.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +154,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="util.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
