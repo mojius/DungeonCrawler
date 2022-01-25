@@ -140,16 +140,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BattleCommand.h" />
+    <ClInclude Include="BattleManager.h" />
     <ClInclude Include="BattleStats.h" />
+    <ClInclude Include="CombatObject.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameMap.h" />
-    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BattleCommand.cpp" />
+    <ClCompile Include="BattleManager.cpp" />
+    <ClCompile Include="CombatObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMap.cpp" />

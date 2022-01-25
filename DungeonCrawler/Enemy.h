@@ -1,5 +1,4 @@
-#ifndef BDALY_ENEMY_H
-#define BDALY_ENEMY_H
+#pragma once
 
 #include "GameObject.h"
 #include "util.h"
@@ -7,13 +6,8 @@
 #include "Player.h"
 #include <vector>
 
-class Enemy : public GameObject
+class Enemy : public CombatObject
 {
 private:
-	BattleStats stats;
 	friend class Player;
-	std::vector<IBattleCommand*> commands;
 };
-
-
-#endif

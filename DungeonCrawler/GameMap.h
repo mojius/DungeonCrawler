@@ -1,5 +1,4 @@
-#ifndef BDALY_GAMEMAP_H
-#define BDALY_GAMEMAP_H
+#pragma once
 
 #include "util.h"
 #include <string>
@@ -35,4 +34,3 @@ private:
 	GameMapTile*** mapArray = nullptr;
 
 };
-#endif

@@ -1,20 +1,19 @@
-#ifndef BDALY_BATTLESTATS_H
-#define BDALY_BATTLESTATS_H
+#pragma once
 
 #include "GameObject.h"
 #include <string>
+#include <tuple>
+#include <vector>
+#include "BattleCommand.h"
 
-struct BattleStats
+class BattleStats
 {
+public:
 	std::string name;
-	const int MAX_HP;
-	const int MAX_MP;
-	int hp;
-	int mp;
-	int atk;
-	int def;
-
-
+	std::tuple <int, int> hp;
+	std::tuple <int, int> mp;
+	std::tuple <int, int> atk;
+	std::tuple <int, int> def;
+	bool fleeSuccess;
+	std::vector<IBattleCommand*> commands;
 };
-
-#endif

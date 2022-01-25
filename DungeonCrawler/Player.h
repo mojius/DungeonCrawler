@@ -1,12 +1,12 @@
-#ifndef BDALY_PLAYER_H
-#define BDALY_PLAYER_H
+#pragma once
 
 #include "GameObject.h"
 #include "util.h"
 #include "BattleCommand.h"
 #include "GameMap.h"
+#include "CombatObject.h"
 
-class Player : public GameObject
+class Player : public CombatObject
 {
 
 public:
@@ -25,16 +25,12 @@ public:
 	Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient);
 	void printGameMap();
 	void move(Orientation m_oDirection);
+	void CombatThink();
 	std::vector<IBattleCommand*> * getCommands();
-
-	
-
 
 private:
 	Orientation facing;
 	GameMap currentLocale;
 	Vec2D position;
-	std::vector<IBattleCommand*> commands;
-};
 
-#endif
+};

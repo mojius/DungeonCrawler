@@ -5,6 +5,9 @@
 #include <string>
 #include "BattleStats.h"
 #include <iostream>
+#include <string>
+#include <tuple>
+#include "util.h"
 
 class IBattleCommand
 {
@@ -14,6 +17,7 @@ protected:
 public:
 	virtual void execute(BattleStats& p_oCaller, BattleStats& p_oTarget) = 0;
 	virtual ~IBattleCommand() {}
+	std::string name;
 };
 
 class AttackCommand : public IBattleCommand
@@ -27,7 +31,7 @@ public:
 		if (damage > 0)
 		{
 			std::cout << p_oCaller.name << " hits for " << damage << " damage!\n";
-			p_oTarget.hp -= damage;
+			std::get<1>(p_oTarget.hp) -= damage;
 		}
 		else if (damage <= 0) std::cout << p_oCaller.name << " missed!\n";
 
@@ -36,6 +40,7 @@ public:
 	AttackCommand(int p_iWeight = 0)
 	{
 		weight = p_iWeight;
+		name = "Attack";
 	};
 
 };
@@ -46,11 +51,12 @@ class FleeCommand : public IBattleCommand
 	{
 		if (((rand() % 3) + 1) == 3)
 		{
-			//End the battle
+			p_oCaller.fleeSuccess = true;
+			std::cout << p_oCaller.name << " successfully fled!!\n";
+			return;
 		}
+		std::cout << p_oCaller.name << " could not run away!!\n";
 	}
-	
-
 };
 
 class DefendCommand : public IBattleCommand

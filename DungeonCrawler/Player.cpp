@@ -26,7 +26,7 @@ void Player::setPos(Vec2D m_vPos)
 
 Player::Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient): currentLocale(m_mGameMap), position(pos), facing(orient)
 {
-	commands.push_back(new AttackCommand());
+	stats.commands.push_back(new AttackCommand());
 }
 
 void Player::printGameMap()
@@ -96,8 +96,14 @@ void Player::move(Player::Orientation m_oDirection)
 
 }
 
-std::vector<IBattleCommand*> * Player::getCommands()
+void Player::CombatThink()
 {
-	return &commands;
+	std::cout << "Which command will you choose?\n";
+	for (int i = 0; i < stats.commands.size(); i++)
+	{
+		std::cout << i << " -- " << stats.commands.at(i)->name;
+	}
+	int decision = 0;
+	std::cin >> decision;
+	stats.commands.at(decision)->execute(&stats, 
 }
-
