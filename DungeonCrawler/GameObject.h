@@ -1,5 +1,4 @@
-#ifndef BDALY_ENTITY_H
-#define BDALY_ENTITY_H
+#pragma once
 
 class GameObject
 {
@@ -8,6 +7,3 @@ public:
 private:
 
 };
-
-
-#endif

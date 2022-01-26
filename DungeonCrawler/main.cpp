@@ -30,8 +30,8 @@ int main()
 		if (random < 16)
 		{
 			
-			Skeleton sk;
-			BattleManager* bm = new BattleManager(p, 
+			//Skeleton sk;
+			//BattleManager* bm = new BattleManager(p, 
 //			int skeletonHP = 1;
 //			bool battleEnded = false;
 //

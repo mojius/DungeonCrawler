@@ -1,13 +1,13 @@
-#ifndef BDALY_COMMAND_H
-#define BDALY_COMMAND_H
+#pragma once
 
 #include <vector>
 #include <string>
-#include "BattleStats.h"
 #include <iostream>
 #include <string>
 #include <tuple>
+
 #include "util.h"
+#include "BattleStats.h"
 
 class IBattleCommand
 {
@@ -65,7 +65,3 @@ class DefendCommand : public IBattleCommand
 };
 
 
-
-
-
-#endif

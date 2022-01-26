@@ -1,7 +1,8 @@
 #pragma once
 
-#include "BattleStats.h"
+
 #include <random>
+#include "BattleStats.h"
 
 class Vec2D
 {
@@ -15,7 +16,7 @@ public:
 	bool operator==(const Vec2D& rhs) { return x == rhs.x && y == rhs.y; }
 };
 
-inline int rollPhysicalAttack(BattleStats& p_oCaller, BattleStats& p_oTarget)
+int rollPhysicalAttack(BattleStats& p_oCaller, BattleStats& p_oTarget)
 {
 	//put evasion/accuracy calculation here
 	int damage = (std::get<1>(p_oCaller.atk) - std::get<1>(p_oCaller.def));

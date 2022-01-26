@@ -105,5 +105,5 @@ void Player::CombatThink()
 	}
 	int decision = 0;
 	std::cin >> decision;
-	stats.commands.at(decision)->execute(&stats, 
+	stats.commands.at(decision)->execute(stats, *opponentStats);
 }
