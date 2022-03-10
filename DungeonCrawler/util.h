@@ -1,8 +1,7 @@
 #pragma once
 
-
+#include "CombatObject.h"
 #include <random>
-#include "BattleStats.h"
 
 class Vec2D
 {
@@ -16,10 +15,36 @@ public:
 	bool operator==(const Vec2D& rhs) { return x == rhs.x && y == rhs.y; }
 };
 
-int rollPhysicalAttack(BattleStats& p_oCaller, BattleStats& p_oTarget)
+inline bool rollPhysicalHit(CombatObject& p_oCaller, CombatObject& p_oTarget)
 {
-	//put evasion/accuracy calculation here
-	int damage = (std::get<1>(p_oCaller.atk) - std::get<1>(p_oCaller.def));
-	return damage;
+	//accuracy check.
+	int n1 = rand() % 100;
+	if (n1 >= p_oCaller.GetCurACC())
+	{
+		std::cout << p_oCaller.name << " misses!\n";
+		return false;
+	}
+	//evasion check.
+	int n2 = rand() % 100;
+	if (n2 < p_oTarget.GetCurEVA())
+	{
+		std::cout << p_oCaller.name << " misses!\n";
+		return false;
+	}
+
+	return true;
 }
 
+inline int rollPhysicalDamage(CombatObject& p_oCaller, CombatObject& p_oTarget)
+{
+	if (p_oCaller.monster)
+	{
+
+	}
+	else
+	{
+		switch(p_oCaller.rhand.
+	}
+	int damage = (p_oCaller.GetCurATK() - p_oTarget.GetCurDEF());
+	return damage;
+}

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "GameObject.h"
-#include "util.h"
 #include "BattleCommand.h"
 #include "GameMap.h"
 #include "CombatObject.h"
+#include "Equipment.h"
 
 class Player : public CombatObject
 {
@@ -18,19 +17,22 @@ public:
 		WEST
 	};
 
-	Orientation getOrientation();
-	void setOrientation(Orientation m_oOrientation);
-	Vec2D getPos();
-	void setPos(Vec2D m_vPos);
+	Orientation GetOrientation();
+	void SetOrientation(Orientation m_oOrientation);
+	Vec2D GetPos();
+	void SetPos(Vec2D m_vPos);
 	Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient);
-	void printGameMap();
-	void move(Orientation m_oDirection);
+	void PrintGameMap();
+	void Move(Orientation m_oDirection);
 	void CombatThink();
-	std::vector<IBattleCommand*> * getCommands();
+	std::vector<IBattleCommand*> * GetCommands();
+
 
 private:
+	const bool monster = false;
 	Orientation facing;
 	GameMap currentLocale;
 	Vec2D position;
+
 
 };

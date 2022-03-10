@@ -1,5 +1,4 @@
 #pragma once
-#include "BattleStats.h"
 #include "CombatObject.h"
 
 class BattleManager
@@ -15,6 +14,8 @@ private:
 
 	//Checks the conditions of the battle -- whether either character has fled, or their health is less than/equals zero.
 	bool BattleShouldEnd();
-	
+
+
+
 };
 

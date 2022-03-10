@@ -1,20 +1,24 @@
 #include "BattleManager.h"
 #include <cassert>
-#include <tuple>
+#include <iostream>
+
+bool BattleManager::instantiated = false;
 
 BattleManager::BattleManager(CombatObject& p_Belligerent1, CombatObject& p_Belligerent2)
 {
 	assert(!instantiated);
 	instantiated = true;
 
+	std::cout << p_Belligerent1.name << " encounters enemy " << p_Belligerent2.name << "\n";
+
 	this->belligerent1 = &p_Belligerent1;
 	this->belligerent2 = &p_Belligerent2;
 
-	belligerent2->opponentStats = &p_Belligerent1.stats;
-	belligerent1->opponentStats = &p_Belligerent2.stats;
+	belligerent2->opponent = &p_Belligerent1;
+	belligerent1->opponent = &p_Belligerent2;
 
 	bool turn = false;
-	while (!BattleShouldEnd)
+	while (!BattleShouldEnd())
 	{ 
 		switch (turn)
 		{
@@ -31,17 +35,13 @@ BattleManager::BattleManager(CombatObject& p_Belligerent1, CombatObject& p_Belli
 		turn = !turn;
 	}
 
-	delete p_Belligerent2.opponentStats;
-	p_Belligerent2.opponentStats = nullptr;
-	delete p_Belligerent1.opponentStats;
-	p_Belligerent1.opponentStats = nullptr;
+	belligerent2->opponent = nullptr;
+	belligerent1->opponent = nullptr;
 }
 
 BattleManager::~BattleManager()
 {
-	delete belligerent1;
 	belligerent1 = nullptr;
-	delete belligerent2;
 	belligerent2 = nullptr;
 	instantiated = false;
 }
@@ -50,11 +50,10 @@ BattleManager::~BattleManager()
 //Returns false if the battle should not end.
 bool BattleManager::BattleShouldEnd()
 {
-	return
-		(
-			std::get<1>(belligerent1->stats.hp) <= 0 ||
-			std::get<1>(belligerent2->stats.hp) <= 0 ||
-			belligerent1->stats.fleeSuccess == true ||
-			belligerent2->stats.fleeSuccess == true
-		);
+
+	bool gotAway = belligerent1->GetCurHP() <= 0 ||
+		belligerent2->GetCurHP() <= 0 ||
+		belligerent1->fleeSuccess == true ||
+		belligerent2->fleeSuccess == true;
+	return gotAway;
 }

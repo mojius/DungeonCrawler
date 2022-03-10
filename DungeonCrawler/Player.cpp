@@ -26,7 +26,15 @@ void Player::setPos(Vec2D m_vPos)
 
 Player::Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient): currentLocale(m_mGameMap), position(pos), facing(orient)
 {
-	stats.commands.push_back(new AttackCommand());
+	commands.push_back(new AttackCommand());
+	hp = { 5,5 };
+	atk = { 1,1 };
+	def = { 0,0 };
+	mp = { 0,0 };
+	spd = { 25, 25 };
+	acc = { 70, 70 };
+	eva = { 15, 15 };
+	name = "Player";
 }
 
 void Player::printGameMap()
@@ -99,11 +107,12 @@ void Player::move(Player::Orientation m_oDirection)
 void Player::CombatThink()
 {
 	std::cout << "Which command will you choose?\n";
-	for (int i = 0; i < stats.commands.size(); i++)
+	for (int i = 0; i < commands.size(); i++)
 	{
-		std::cout << i << " -- " << stats.commands.at(i)->name;
+		std::cout << i + 1 << " -- " << commands.at(i)->name;
 	}
 	int decision = 0;
 	std::cin >> decision;
-	stats.commands.at(decision)->execute(stats, *opponentStats);
+	decision -= 1;
+	commands.at(decision)->execute(*this, *opponent);
 }

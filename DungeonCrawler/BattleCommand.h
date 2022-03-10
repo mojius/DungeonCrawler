@@ -4,18 +4,18 @@
 #include <string>
 #include <iostream>
 #include <string>
-#include <tuple>
+#include <cmath>
 
 #include "util.h"
-#include "BattleStats.h"
+#include "CombatObject.h"
 
 class IBattleCommand
 {
 protected:
-	int weight;
+	int weight = 0;
 
 public:
-	virtual void execute(BattleStats& p_oCaller, BattleStats& p_oTarget) = 0;
+	virtual void execute(CombatObject& p_oCaller, CombatObject& p_oTarget) = 0;
 	virtual ~IBattleCommand() {}
 	std::string name;
 };
@@ -24,16 +24,19 @@ class AttackCommand : public IBattleCommand
 {
 
 public:
-	void execute(BattleStats& p_oCaller, BattleStats& p_oTarget)
+	void execute(CombatObject& p_oCaller, CombatObject& p_oTarget)
 	{
+
+		if (!rollPhysicalHit) return;
+		
 		std::cout << p_oCaller.name << " attacks!\n";
 		int damage = rollPhysicalAttack(p_oCaller, p_oTarget);
 		if (damage > 0)
 		{
 			std::cout << p_oCaller.name << " hits for " << damage << " damage!\n";
-			std::get<1>(p_oTarget.hp) -= damage;
+			p_oTarget.SetCurHP(std::max((p_oTarget.GetCurHP() - damage), 0));
 		}
-		else if (damage <= 0) std::cout << p_oCaller.name << " missed!\n";
+		else if (damage <= 0) std::cout << p_oCaller.name << "'s attack grazes off!\n";
 
 	};
 
@@ -47,7 +50,7 @@ public:
 
 class FleeCommand : public IBattleCommand
 {
-	void execute(BattleStats& p_oCaller, BattleStats& p_oTarget)
+	void execute(CombatObject& p_oCaller, CombatObject& p_oTarget)
 	{
 		if (((rand() % 3) + 1) == 3)
 		{

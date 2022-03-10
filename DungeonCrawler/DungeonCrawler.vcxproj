@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClInclude Include="BattleCommand.h" />
     <ClInclude Include="BattleManager.h" />
-    <ClInclude Include="BattleStats.h" />
+    <ClInclude Include="BattleStatus.h" />
     <ClInclude Include="CombatObject.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Equipment.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="util.h" />
@@ -157,6 +159,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="util.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
