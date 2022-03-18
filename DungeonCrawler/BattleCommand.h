@@ -30,7 +30,7 @@ public:
 		if (!rollPhysicalHit) return;
 		
 		std::cout << p_oCaller.name << " attacks!\n";
-		int damage = rollPhysicalAttack(p_oCaller, p_oTarget);
+		int damage = rollPhysicalDamage(p_oCaller, p_oTarget);
 		if (damage > 0)
 		{
 			std::cout << p_oCaller.name << " hits for " << damage << " damage!\n";

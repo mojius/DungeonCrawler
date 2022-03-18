@@ -4,22 +4,22 @@
 #include <iostream>
 #include "BattleCommand.h"
 
-Player::Orientation Player::getOrientation()
+Player::Orientation Player::GetOrientation()
 {
 	return this->facing;
 }
 
-void Player::setOrientation(Player::Orientation m_oOrientation)
+void Player::SetOrientation(Player::Orientation m_oOrientation)
 {
 	this->facing = m_oOrientation;
 }
 
-Vec2D Player::getPos()
+Vec2D Player::GetPos()
 {
 	return this->position;
 }
 
-void Player::setPos(Vec2D m_vPos)
+void Player::SetPos(Vec2D m_vPos)
 {
 	this->position = m_vPos;
 }
@@ -28,7 +28,7 @@ Player::Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient): curr
 {
 	commands.push_back(new AttackCommand());
 	hp = { 5,5 };
-	atk = { 1,1 };
+	str = { 1,1 };
 	def = { 0,0 };
 	mp = { 0,0 };
 	spd = { 25, 25 };
@@ -37,7 +37,7 @@ Player::Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient): curr
 	name = "Player";
 }
 
-void Player::printGameMap()
+void Player::PrintGameMap()
 {
 	//Rows...
 	for (int i = 0; i < currentLocale.GetSize().y; i++)
@@ -48,7 +48,7 @@ void Player::printGameMap()
 			GameMap::TileState t = this->currentLocale.GetMapArray()[i][j]->GetTileState();
 
 			//TODO: Tidy this up when operator overloading works.
-			if (getPos().x == j && getPos().y == i)
+			if (GetPos().x == j && GetPos().y == i)
 				std::cout << 'P';
 			else
 			{
@@ -75,9 +75,9 @@ void Player::printGameMap()
 	}
 }
 
-void Player::move(Player::Orientation m_oDirection)
+void Player::Move(Player::Orientation m_oDirection)
 {
-	Vec2D tempVec = this->getPos();
+	Vec2D tempVec = this->GetPos();
 	Vec2D size = this->currentLocale.GetSize();
 	switch (m_oDirection)
 	{
@@ -100,7 +100,7 @@ void Player::move(Player::Orientation m_oDirection)
 		&& tempVec.x < size.x
 		&& tempVec.y < size.y
 		&& this->currentLocale.GetMapArray()[tempVec.y][tempVec.x]->GetTileState() != GameMap::TileState::SOLID)
-		this->setPos(tempVec);
+		this->SetPos(tempVec);
 
 }
 

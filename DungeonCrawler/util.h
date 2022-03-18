@@ -2,6 +2,7 @@
 
 #include "CombatObject.h"
 #include <random>
+#include <iostream>
 
 class Vec2D
 {
@@ -43,8 +44,8 @@ inline int rollPhysicalDamage(CombatObject& p_oCaller, CombatObject& p_oTarget)
 	}
 	else
 	{
-		switch(p_oCaller.rhand.
+
 	}
-	int damage = (p_oCaller.GetCurATK() - p_oTarget.GetCurDEF());
+	int damage = (p_oCaller.GetCurSTR() - p_oTarget.GetCurDEF());
 	return damage;
 }

@@ -35,7 +35,7 @@ int main()
 		}
 
 
-		p.printGameMap();
+		p.PrintGameMap();
 
 		std::cout << "Pick a direction for the player to move to. (WASD)";
 		std::cin >> direction;
@@ -43,16 +43,16 @@ int main()
 		switch (direction)
 		{
 		case 'W':
-			p.move(Player::Orientation::NORTH);
+			p.Move(Player::Orientation::NORTH);
 			break;
 		case 'A':
-			p.move(Player::Orientation::WEST);
+			p.Move(Player::Orientation::WEST);
 			break;
 		case 'S':
-			p.move(Player::Orientation::SOUTH);
+			p.Move(Player::Orientation::SOUTH);
 			break;
 		case 'D':
-			p.move(Player::Orientation::EAST);
+			p.Move(Player::Orientation::EAST);
 			break;
 
 		}

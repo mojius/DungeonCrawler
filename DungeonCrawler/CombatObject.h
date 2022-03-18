@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include <vector>
 #include <string>
+#include "Equipment.h"
 
 class IBattleCommand;
 
@@ -26,6 +27,7 @@ protected:
 
 
 public:
+
 	std::string name;
 	bool fleeSuccess;
 	const bool monster;
@@ -35,7 +37,7 @@ public:
 	Equipment* chest = nullptr;
 	Equipment* rhand = nullptr;
 	Equipment* lhand = nullptr;
-	Equipment* acc = nullptr;
+	Equipment* accessory = nullptr;
 
 	int GetMaxHP();
 	int GetCurHP();
