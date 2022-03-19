@@ -1,9 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
-#include "Player.h"
 #include <vector>
-#include "CombatObject.h"
+
 
 class Enemy : public CombatObject
 {
@@ -11,11 +10,10 @@ public:
 	Enemy()
 	{
 		type = ENEMY;
-	}
+	};
 
 private:
-	friend class Player;
-	const bool monster = true;
+
 };
 
 class Skeleton : public Enemy
@@ -36,7 +34,7 @@ public:
 	}
 	void CombatThink()
 	{
-		commands.front()->ExecuteMonster(*this, *opponent);
+		commands.front()->ExecuteMonster(this, opponent);
 	}
 
 };

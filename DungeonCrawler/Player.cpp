@@ -115,5 +115,5 @@ void Player::CombatThink()
 	int decision = 0;
 	std::cin >> decision;
 	decision -= 1;
-	commands.at(decision)->ExecutePlayer(*this, *opponent);
+	commands.at(decision)->ExecutePlayer(this, opponent);
 }

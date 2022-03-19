@@ -26,7 +26,6 @@ protected:
 	friend class BattleManager;
 	virtual void CombatThink() = 0;
 
-
 	struct { int max, cur; } hp;
 	struct { int max, cur; } mp;
 	struct { int max, cur; } str;
@@ -34,7 +33,6 @@ protected:
 	struct { int max, cur; } spd;
 	struct { int max, cur; } acc;
 	struct { int max, cur; } eva;
-
 
 public:
 

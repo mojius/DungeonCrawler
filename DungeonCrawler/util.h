@@ -16,28 +16,28 @@ public:
 	bool operator==(const Vec2D& rhs) { return x == rhs.x && y == rhs.y; }
 };
 
-inline bool rollPhysicalHit(CombatObject& p_oCaller, CombatObject& p_oTarget)
+inline bool rollPhysicalHit(CombatObject* p_oCaller, CombatObject* p_oTarget)
 {
 	//accuracy check.
 	int n1 = rand() % 100;
-	if (n1 >= p_oCaller.GetCurACC())
+	if (n1 >= p_oCaller->GetCurACC())
 	{
-		std::cout << p_oCaller.name << " misses!\n";
+		std::cout << p_oCaller->name << " misses!\n";
 		return false;
 	}
 	//evasion check.
 	int n2 = rand() % 100;
-	if (n2 < p_oTarget.GetCurEVA())
+	if (n2 < p_oTarget->GetCurEVA())
 	{
-		std::cout << p_oCaller.name << " misses!\n";
+		std::cout << p_oCaller->name << " misses!\n";
 		return false;
 	}
 
 	return true;
 }
 
-inline int rollPhysicalDamage(CombatObject& p_oCaller, CombatObject& p_oTarget)
+inline int rollPhysicalDamage(CombatObject* p_oCaller, CombatObject* p_oTarget)
 {
-	int damage = (p_oCaller.GetCurSTR() - p_oTarget.GetCurDEF());
+	int damage = (p_oCaller->GetCurSTR() - p_oTarget->GetCurDEF());
 	return damage;
 }
