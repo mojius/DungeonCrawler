@@ -7,7 +7,10 @@
 class Enemy : public CombatObject
 {
 public:
-	Enemy();
+	Enemy()
+	{
+		type = ENEMY;
+	}
 private:
 	friend class Player;
 	const bool monster = true;

@@ -26,6 +26,7 @@ void Player::SetPos(Vec2D m_vPos)
 
 Player::Player(GameMap& m_mGameMap, Vec2D pos, Player::Orientation orient): currentLocale(m_mGameMap), position(pos), facing(orient)
 {
+	type = PLAYER;
 	commands.push_back(new AttackCommand());
 	hp = { 5,5 };
 	str = { 1,1 };

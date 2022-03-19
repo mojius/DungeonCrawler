@@ -11,11 +11,21 @@ class CombatObject: public GameObject
 {
 
 protected:
+
+	enum ObjectType
+	{
+		PLAYER,
+		ENEMY
+	};
+
+	ObjectType type;
+	CombatObject();
+	~CombatObject();
 	CombatObject* opponent;
 	std::vector<IBattleCommand*> commands;
 	friend class BattleManager;
 	virtual void CombatThink() = 0;
-	~CombatObject();
+
 
 	struct { int max, cur; } hp;
 	struct { int max, cur; } mp;
@@ -29,6 +39,7 @@ protected:
 public:
 
 	std::string name;
+
 	bool fleeSuccess;
 	const bool monster;
 
