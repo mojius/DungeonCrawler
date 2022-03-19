@@ -38,14 +38,6 @@ inline bool rollPhysicalHit(CombatObject& p_oCaller, CombatObject& p_oTarget)
 
 inline int rollPhysicalDamage(CombatObject& p_oCaller, CombatObject& p_oTarget)
 {
-	if (p_oCaller.monster)
-	{
-
-	}
-	else
-	{
-
-	}
 	int damage = (p_oCaller.GetCurSTR() - p_oTarget.GetCurDEF());
 	return damage;
 }

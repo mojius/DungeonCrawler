@@ -13,9 +13,9 @@ class IBattleCommand
 {
 protected:
 	int weight = 0;
-
 public:
-	virtual void execute(CombatObject& p_oCaller, CombatObject& p_oTarget) = 0;
+	virtual void ExecutePlayer(CombatObject& p_oCaller, CombatObject& p_oTarget) = 0;
+	virtual void ExecuteMonster(CombatObject& p_oCaller, CombatObject& p_oTarget) = 0;
 	virtual ~IBattleCommand() {}
 	std::string name;
 };
@@ -24,10 +24,9 @@ class AttackCommand : public IBattleCommand
 {
 
 public:
-	void execute(CombatObject& p_oCaller, CombatObject& p_oTarget)
+	void ExecutePlayer(CombatObject& p_oCaller, CombatObject& p_oTarget)
 	{
-
-		if (!rollPhysicalHit) return;
+		if (!rollPhysicalHit(p_oCaller,p_oTarget)) return;
 		
 		std::cout << p_oCaller.name << " attacks!\n";
 		int damage = rollPhysicalDamage(p_oCaller, p_oTarget);
@@ -46,6 +45,11 @@ public:
 		name = "Attack";
 	};
 
+	void ExecuteMonster(CombatObject& p_oCaller, CombatObject& p_oTarget)
+	{
+		//monster-based calculations go here
+
+	}
 };
 
 class FleeCommand : public IBattleCommand

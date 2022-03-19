@@ -1,9 +1,19 @@
 #include "CombatObject.h"
 
+CombatObject::CombatObject()
+{
+
+}
+
 CombatObject::~CombatObject()
 {
 	commands.clear();
 	opponent = nullptr;
+}
+
+CombatObject::ObjectType CombatObject::GetObjectType()
+{
+	return type;
 }
 
 int CombatObject::GetMaxHP()

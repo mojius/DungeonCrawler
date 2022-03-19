@@ -41,7 +41,6 @@ public:
 	std::string name;
 
 	bool fleeSuccess;
-	const bool monster;
 
 	// idk what to do 
 	Equipment* head = nullptr;
@@ -49,6 +48,8 @@ public:
 	Equipment* rhand = nullptr;
 	Equipment* lhand = nullptr;
 	Equipment* accessory = nullptr;
+
+	ObjectType GetObjectType();
 
 	int GetMaxHP();
 	int GetCurHP();

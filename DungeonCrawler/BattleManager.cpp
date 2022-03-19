@@ -1,3 +1,5 @@
+#pragma once
+
 #include "BattleManager.h"
 #include <cassert>
 #include <iostream>
@@ -50,7 +52,6 @@ BattleManager::~BattleManager()
 //Returns false if the battle should not end.
 bool BattleManager::BattleShouldEnd()
 {
-
 	bool gotAway = belligerent1->GetCurHP() <= 0 ||
 		belligerent2->GetCurHP() <= 0 ||
 		belligerent1->fleeSuccess == true ||

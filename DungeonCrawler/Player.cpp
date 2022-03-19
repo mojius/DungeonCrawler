@@ -108,12 +108,12 @@ void Player::Move(Player::Orientation m_oDirection)
 void Player::CombatThink()
 {
 	std::cout << "Which command will you choose?\n";
-	for (int i = 0; i < commands.size(); i++)
+	for (unsigned int i = 0; i < commands.size(); i++)
 	{
 		std::cout << i + 1 << " -- " << commands.at(i)->name;
 	}
 	int decision = 0;
 	std::cin >> decision;
 	decision -= 1;
-	commands.at(decision)->execute(*this, *opponent);
+	commands.at(decision)->ExecutePlayer(*this, *opponent);
 }
