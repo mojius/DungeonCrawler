@@ -1,0 +1,10 @@
+{
+    "Name": "Torch",
+    "Description": "A small, lit bluefire torch.",
+    "Color": 
+    [
+        0,
+        0,
+        255
+    ]
+}

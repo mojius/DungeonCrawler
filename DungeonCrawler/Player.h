@@ -3,7 +3,6 @@
 #include "BattleCommand.h"
 #include "GameMap.h"
 #include "CombatObject.h"
-#include "Equipment.h"
 
 class Player : public CombatObject
 {

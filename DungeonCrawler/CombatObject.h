@@ -41,11 +41,11 @@ public:
 	bool fleeSuccess;
 
 	// idk what to do 
-	Equipment* head = nullptr;
-	Equipment* chest = nullptr;
-	Equipment* rhand = nullptr;
-	Equipment* lhand = nullptr;
-	Equipment* accessory = nullptr;
+	//Equipment* head = nullptr;
+	//Equipment* chest = nullptr;
+	//Equipment* rhand = nullptr;
+	//Equipment* lhand = nullptr;
+	//Equipment* accessory = nullptr;
 
 	ObjectType GetObjectType();
 

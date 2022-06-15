@@ -2,6 +2,7 @@
 #include <iostream>
 #include "GameMap.h"
 #include "Player.h"
+#include "Item.h"
 #include <string>
 #include <stdlib.h>
 #include <random>
@@ -10,8 +11,11 @@
 
 int main()
 {
-	GameMap mapOne("C:\\repos\\projects\\dungeon-crawler\\DungeonCrawler\\DungeonCrawler\\map.txt", false);
 	std::cout << "Welcome to Dungeon Crawler version 1e^-4.\n";
+
+	Item i("C:\\source\\repos\\C++\\DungeonCrawler\\Items\\torch.json");
+	GameMap mapOne("C:\\repos\\projects\\dungeon-crawler\\DungeonCrawler\\DungeonCrawler\\map.txt", false);
+
 
 	Player p(mapOne, { 0,0 }, Player::Orientation::SOUTH);
 

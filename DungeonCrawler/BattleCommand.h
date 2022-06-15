@@ -8,7 +8,6 @@
 
 #include "util.h"
 #include "CombatObject.h"
-#include "Enemy.h"
 
 class IBattleCommand
 {
@@ -49,7 +48,7 @@ public:
 	void ExecuteMonster(CombatObject* p_oCaller, CombatObject* p_oTarget)
 	{
 		//monster-based calculations go here
-		Enemy* e = dynamic_cast<Enemy*>(p_oCaller);
+
 	};
 };
 

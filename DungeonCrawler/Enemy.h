@@ -2,7 +2,8 @@
 
 #include "GameObject.h"
 #include <vector>
-
+#include "CombatObject.h"
+#include "BattleCommand.h"
 
 class Enemy : public CombatObject
 {
@@ -12,6 +13,7 @@ public:
 		type = ENEMY;
 	};
 
+	int enemyPoints;
 private:
 
 };

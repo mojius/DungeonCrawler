@@ -1,0 +1,67 @@
+{
+    "World":
+    {
+        "Maps":
+            [
+                {
+                    "Name": "TestMap",
+                    "Width": 20,
+                    "Height": 16,
+                    "Objects":
+                    [
+                    ],
+                    "Randomly Encountered Enemies":
+                    [
+                    ]
+                }
+            ],
+        "Enemies":
+        [   
+            //Link enemies from their own jsons
+            "Greg"
+        ],
+        "Scripted Events":
+        [],
+        "Player":
+        {
+            "Name": "Hero",
+            "Equipment":
+            [
+                "Broadsword",
+                "Helmet"
+            ],
+            "Stats":
+            {
+                "HP": 10,
+                "MP": 5,
+                "ATK": 8,
+                "DEF": 10,
+                "SPD": 3,
+                "EVA": 5
+            },
+            "Inventory":
+            [
+                {
+                    "Name": "Broadsword",
+                    "Description": "A great sword :)",
+                    "Type": "RHand",
+                    "AtkBonus": 3,
+                    "DefBonus": 0
+                },
+                {
+                    "Name": "Helmet",
+                    "Description": "An iron helmet.",
+                    "Type": "Head",
+                    "AtkBonus": 0,
+                    "DefBonus": 3
+                },
+                {
+                    "Name": "Torch" //You get to be as descriptive as you want :)
+                }
+                
+            ]
+        }
+
+
+    }
+}
